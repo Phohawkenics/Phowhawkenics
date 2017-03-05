@@ -1,0 +1,73 @@
+
+$primary-color: #B0D2D3; /*blue*/
+$secondary-color: #62D4D0; /**/
+
+$accent-color-1: #0A83E0; /*blue*/
+$accent-color-2: #2D4262; /*indigo*/
+$accent-color-3: #363237; /*deep purple*/
+$accent-color-4: #73605B; /*taupe*/
+$accent-color-5: #D09683; /*blush*/
+
+$neutral-grey: #eeeeee; /*grey*/
+$neutral-dark-grey: #444C5C;
+$neutral-black: #333333; /*black*/
+$neutral-beige: #FFF3AE; /*beige*/
+
+.bg-primary { background-color: $primary-color;}
+.bg-secondary { background-color: $secondary-color;}
+
+.bg-accent-1 { background-color: $accent-color-1;}
+.bg-accent-2 { background-color: $accent-color-2;}
+.bg-accent-3 { background-color: $accent-color-3;}
+.bg-accent-4 { background-color: $accent-color-4;}
+.bg-accent-5 { background-color: $accent-color-5;}
+
+.bg-grey { background-color: $neutral-grey;}
+.bg-dark-grey { background-color: $neutral-dark-grey;}
+.bg-black { background-color: $neutral-black;}
+.bg-beige { background-color: $neutral-beige;}
+.bg-white { background-color: white;}
+
+@mixin content-color($color) {
+	color: $color;
+
+	h1,h2,h3,h4,h5,h6,p,li {
+		color: $color;
+	}
+}
+
+.content {
+	.row {
+		&.accent-color-1, .accent-color-1 { @include content-color($accent-color-1);}
+		&.accent-color-2, .accent-color-2 { @include content-color($accent-color-2);}
+		&.accent-color-3, .accent-color-3 { @include content-color($accent-color-3);}
+		&.accent-color-4, .accent-color-4 { @include content-color($accent-color-4);}
+		&.accent-color-5, .accent-color-5 { @include content-color($accent-color-5);}
+		
+		.white { @include content-color(white);}
+		.black { @include content-color($neutral-black);}
+	}
+}
+
+@mixin allTextAndLinksColor($main) {
+	h1,h2,h3,h4,h5,h6,p,li,a {
+		color: $main;
+	}
+
+	a:hover {
+		opacity: 0.6;
+	}
+}
+
+.white 	{
+	header, footer {
+		@include allTextAndLinksColor(white);
+	}
+}
+
+.black 	{
+	header, footer {
+		@include allTextAndLinksColor($neutral-black);
+	}
+}
+

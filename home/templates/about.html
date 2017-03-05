@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block header %}
+<div id="header-container" class="bg-primary white">
+	{% include "common/header.html" %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="breadcrumbs">
+		<a href="/">Home </a> > About Me
+	</div>
+</div>
+<div class="row">
+	<h1>About me <img class="loading-spinner" style="display: none" src="{% static '/images/loading.gif' %}"></h1>
+	{% include "./component/aboutMe/aboutMeNav.html" with sidebarClasses="sidebar-horizontal primary" only %}
+
+</div>
+
+<div id="about-me-content" class="row-wrapper">
+
+	{% if contentName != "" %}
+		{% include "./content/aboutMe/"|add:contentName|add:".html" %}
+	{% endif%}
+
+</div>
+
+
+
+
+<script type="text/javascript">
+
+$('.content').on("click", ".sidebar-horizontal > div, .sidebar-vertical > div", function() {
+    var id = $(this).attr("class");
+
+	$(".loading-spinner").show();
+	$( "#about-me-content" ).css("opacity", 0);
+
+	var t0 = performance.now();
+
+	$( "#about-me-content" ).load( "/about/" + id, function() {
+		
+		selectSidebar(id);
+
+		var t1 = performance.now();
+
+		if (t1 - t0 < 400) {
+			setTimeout(function() {
+				$(".loading-spinner").hide();
+				$( "#about-me-content" ).animate({
+					    opacity: 1
+					}, 'normal');
+			}, 500);
+		} else {
+			$(".loading-spinner").hide();
+			$( "#about-me-content" ).animate({
+				    opacity: 1
+				}, 'normal');
+		}
+
+	});
+});
+
+selectSidebar("{{contentName}}");
+
+function selectSidebar (className) {
+	$(".sidebar-horizontal > div, sidebar-vertical > div").removeClass("selected");
+	$("." + className).addClass("selected");
+}
+
+</script>
+{% endblock %}
+
+{% block footer %}
+<div id="footer-container" class="bg-primary white">
+{% include "common/footer.html" %}
+</div>
+{% endblock %}

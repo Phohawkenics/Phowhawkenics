@@ -1,0 +1,201 @@
+/************************************
+**       Navigation Menus
+*************************************/
+
+$styles-home-menu-panel-height: 200px;
+$styles-home-menu-panel-offset: -90px;
+
+.row.home-menu-container {
+	height: $styles-home-menu-panel-height + $styles-home-menu-panel-offset + 50;
+}
+
+$home-menu-border-color: white;
+
+.home-menu {
+	position: absolute;
+	width: 100%;
+	z-index: 1000;
+
+	> div {
+		width: 80%;
+		margin: auto;
+	}
+
+
+	.menu-panel > div > div {
+		height: $styles-home-menu-panel-height;
+		border-color: white;
+		border-width: 8px 0 0 0;
+		@extend .dotted-border-white;
+
+		> div {
+			position: absolute;
+		    bottom: 0;
+		    width: 100%;
+		    margin-left: -15px;
+		    text-align: center;
+		}
+
+		div > a {
+			color: white;
+			display:block;
+
+		    > span.glyphicon {
+				font-size: 40px;
+				border-color: white;
+				border-width: 8px 0 0 0;
+				@extend .dotted-border-white;
+				padding: 5px 10px 0 10px;
+			}
+
+			&:hover > span.glyphicon {
+				opacity: 0.6;
+			}
+		}
+	}
+
+	.menu-panel h6 {
+		margin: 0;
+		padding: 5px 0;
+		cursor: pointer;
+
+		> span.glyphicon {
+			display: none;
+			float: right;
+		}
+	}
+}
+
+.home-menu.offset-top {
+	top: $styles-home-menu-panel-offset;
+}
+
+@media screen and (min-width: $md-min-width) and (max-width: $md-max-width) {
+	.home-menu {
+		> div {
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: $sm-max-width) {
+	.home-menu.offset-top {
+		top: -50px;
+	}
+
+	.row.home-menu-container {
+		height: 100px;
+	}
+
+	.home-menu {
+
+		.menu-panel > div > div {
+			display: none;
+			height: auto;
+
+			> div {
+				position: relative;
+				display: block;
+			    margin-left: 0;
+			}
+		}
+
+		.menu-panel h6 > span.glyphicon {
+			display: inline;
+		}
+	}
+}
+
+@mixin sidebar-color($color) {
+	> div {
+		background-color: $color;
+	}
+
+	> div.selected h6 {
+		color: $color;
+	}
+}
+
+
+.sidebar-vertical,
+.sidebar-horizontal {
+
+	> div {
+		position:relative;
+		margin: 5px 10px;
+
+		&:hover {
+			opacity: 0.6;
+		}
+
+		:hover {
+			text-decoration: none;
+		}
+
+		a h6 {
+			color: white;
+			padding: 5px 20px 5px 10px;
+			margin: 0;
+		}
+
+		a h6 span {
+			position: absolute;
+			right: 0;
+			line-height: 32px;
+			display:none;
+		}
+	}
+
+	> div.selected {
+		background-color: white!important;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		h6 span {
+			display: inline;
+		}
+	}
+
+	> div:hover {
+		cursor: pointer;
+
+		h6 span {
+			display: inline;
+		}
+	}
+
+	&.primary {
+		@include sidebar-color($primary-color);
+	}
+
+	&.accent-1 {
+		@include sidebar-color($accent-color-1);
+	}
+
+	&.accent-2 {
+		@include sidebar-color($accent-color-2);
+	}
+
+	&.accent-3 {
+		@include sidebar-color($accent-color-3);
+	}
+}
+
+.sidebar-vertical {
+	padding: 0;
+}
+
+.sidebar-horizontal {
+	text-align: center;
+
+	> div {
+		display:inline-block;
+
+		h6 {
+			color: white;
+			margin: 0;
+		}
+	}
+}

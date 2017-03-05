@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Phohawkenics</title>
+
+	
+	<link href="{% static '/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static '/css/compiled/main.css' %}" rel="stylesheet">
+
+	<script src="{% static '/lib/jquery/jquery-3.1.1.min.js' %}"></script>
+
+</head>
+<body>
+
+	
+	{% block header%}
+		<div id="header-container" class="bg-primary white">
+			{% include "common/header.html" %}
+		</div>
+	{% endblock %}
+	<div id="content-container">
+		<div class="content">
+		{% block content %}
+
+			{% include "./content/home.html" %}
+
+		{% endblock %}
+
+		
+		</div>
+	</div>
+	{% block footer%}
+		<div id="footer-container" class="bg-primary white">
+		{% include "common/footer.html" %}
+		</div>
+	{% endblock %}
+	<div id="back-to-top">
+		<img src="{% static 'images/back-to-top.png'%}">
+	</div>
+</body>
+
+<script type="text/javascript">
+
+// A $( document ).ready() block.
+$("#back-to-top").on("click", function() {
+    $('html, body').animate({
+	    scrollTop: 0
+	}, 'fast');
+});
+
+</script>
+
+</html>

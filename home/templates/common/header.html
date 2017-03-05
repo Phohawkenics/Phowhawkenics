@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<header>
+	<div class="row">
+
+		<div class="misc pull-right">
+			<div class="misc-content">
+				<div class="site-specific">
+					<a href="#">Site Map</a> | 
+					<a href="#">Contact me</a>
+				</div>
+				<div class="social-media-links">
+					<a href="#"><img height="40"  src="{% static 'images/facebook_icon.png' %}"></a>
+					<a href="#"><img height="40" src="{% static 'images/linkedin_icon.png' %}"></a>
+					<a href="#"><img height="40" src="{% static 'images/github_logo.png' %}"></a>
+				</div>
+				
+			</div>
+			<div class="misc-menu-btn">
+				<a href="#"><span class="glyphicon glyphicon-menu-left"></span></a>
+			</div>
+		</div>
+		<div class="logo">
+			<a href="/"><h1>PHKenics</h1></a>
+		</div>
+	</div>
+	<div class="row">
+		<ul class="nav-menu-header">
+			<li><div><a href="/about">About Me</a></div></li>
+			<li><div><a href="#">My Services</div></a></li>
+			<li><div><a href="#">Future Plans</div></a></li>
+			<li><div><a href="#">Stuff</div></a></li>
+		</ul>
+	</div>
+</header>
+
+<script type="text/javascript">
+$(".misc-menu-btn").on("click", function () {
+	var $miscPanel = $(this).parent();
+	var $contentDiv = $miscPanel.find(".misc-content:visible");
+
+	if ($contentDiv.length == 0) {
+		$(".misc").css("right", "-300px");
+		$(".misc").addClass("open");
+		$(".misc-content").css("display", "table-cell");
+		$('.misc').animate({
+		    right: 0
+		}, 'fast');
+	} else {
+		$(".misc").removeClass("open");
+		$(".misc").attr("style", "");
+		$(".misc-content").attr("style", "");
+	}
+	toggleGlyphiconMiscMenu($miscPanel);
+});
+
+$(document).on("click", function (e) {
+	var inMisc = $(".misc").find(e.target).length == 1;
+	var menuIsOpen = $(".misc .misc-content:visible").length > 0;
+
+    if (!inMisc && menuIsOpen) {
+    	$(".misc-menu-btn").click();
+    }
+});
+
+function toggleGlyphiconMiscMenu(self) {
+	var $glyphicon = $(self).find(".misc-menu-btn span");
+
+	if ($glyphicon.hasClass("glyphicon-menu-left")) {
+		$glyphicon.removeClass("glyphicon-menu-left");
+		$glyphicon.addClass("glyphicon-remove");
+	} else {
+		$glyphicon.removeClass("glyphicon-minus");
+		$glyphicon.addClass("glyphicon-menu-left");
+	}
+}
+</script>

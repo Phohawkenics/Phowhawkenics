@@ -1,0 +1,120 @@
+<!--<div class="row home-menu-container">
+	<div class="home-menu offset-top">
+		... content goes in this...
+
+	</div>
+</div>-->
+
+<div class="white">
+	<div class="menu-panel bg-accent-2 col-md-3">
+		<div>
+			<h6>About Me <span class="glyphicon glyphicon-plus"></span></h6>
+			<div>
+				<p>
+					Getting to know who you're working with is a key factor for business making.
+				</p>
+				 <div><a href="/about"><span class="glyphicon glyphicon-info-sign"></a></div>
+			</div>
+		</div>
+	</div>
+	<div class="menu-panel bg-accent-3 col-md-3">
+		
+		<div>
+			<h6>My Services <span class="glyphicon glyphicon-plus"></span></h6>
+			<div>
+				<p>
+					From planning to implementation, learn about what I can do for you.
+				</p>
+				<div>
+					<a href="/services"><span class="glyphicon glyphicon-info-sign"></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu-panel bg-accent-4 col-md-3">
+		
+		<div>
+			<h6>Future Plans<span class="glyphicon glyphicon-plus"></span></h6>
+			<div>
+				<p>
+					Under construction
+				</p> 
+				<div><a href="/plans"><span class="glyphicon glyphicon-info-sign"></a></div>
+			</div>
+		</div>
+	</div>
+	<div class="menu-panel bg-accent-5 col-md-3">
+		<div>
+			<h6>Stuff<span class="glyphicon glyphicon-plus"></span></h6>
+			<div>
+				<p>
+					Under construction
+				</p> 
+				<div><a href="/stuff"><span class="glyphicon glyphicon-info-sign"></a></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$(".menu-panel h6").click(function() {
+	var $menuPanel = $(this).parent().parent();
+	var $contentDiv = $menuPanel.find("> div > div:visible");
+
+	var showContentFlag = $contentDiv.length == 0;
+
+	if (showContentFlag) {
+		closeAllMenus ();
+
+		$contentDiv = $menuPanel.find("div > div");
+		$contentDiv.show();
+
+		$('html, body').animate({
+		    scrollTop: $contentDiv.parent().offset().top - 20
+		}, 'slow');
+
+	} else {
+		$contentDiv.css("display", "");
+	}
+
+	toggleGlyphicon($menuPanel, showContentFlag);
+});
+
+function toggleGlyphicon(self, showContentFlag) {
+	var $glyphicon = $(self).find("h6 > span");
+
+	if (showContentFlag) {
+		$glyphicon.removeClass("glyphicon-plus");
+		$glyphicon.addClass("glyphicon-minus");
+	} else {
+		$glyphicon.removeClass("glyphicon-minus");
+		$glyphicon.addClass("glyphicon-plus");
+	}
+}
+
+function closeAllMenus () {
+	$(".menu-panel > div > div").css("display", "");
+	$(".menu-panel h6 > span").removeClass("glyphicon-minus");
+	$(".menu-panel h6 > span").addClass("glyphicon-plus");
+}
+
+$(document).on("click", function (e) {
+	if (!$(e.target).hasClass('misc-menu-btn')) {
+		var inHomeMenu = $(".home-menu").find(e.target).length > 0;
+		var menuIsOpen = $(".menu-panel > div > div:visible").length > 0;
+
+	    if (!inHomeMenu && menuIsOpen) {
+
+	    	closeAllMenus();
+	    }
+	}
+});
+
+// A $( document ).ready() block.
+$( document ).ready(function() {
+    
+
+});
+
+</script>
