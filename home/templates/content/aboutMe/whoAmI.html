@@ -1,24 +1,63 @@
+{% load staticfiles %}
 
 <div class="row">
-	{% include "../../component/aboutMe/aboutMeNav.html" with sidebarClasses="col-sm-3 sidebar-vertical primary" %}
-	<div class="col-sm-9">
-		<h2 >whoAmI.html</h2>
-		<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+	{% include "../../component/aboutMe/aboutMeNav.html" with sidebarClasses="col-md-3 sidebar-vertical primary" only%}
+	<div class="col-md-9">
+		<h2>You can call me Leo, easy right?</h2>
+		<img class="leo-thumbnail" src="{% static 'images/about-me/leo-thumbnail.png' %}">
+		<p>I am a recent graduate with a Bachelor’s in Computer Engineering from Concordia University in Montreal, QC, Canada. My career is still young and I am taking this chance to explore different technologies.  </p>
+		<h3>Why Web Development?</h3>
+		<p>Truthfully, while I was growing up, I never knew what career I wanted to pursue. I started off getting my Cegep Degree in Health Sciences to become a physiotherapist. However, I changed my mind decided to go into the fields of computers because of the job security in the fields of IT.</p>
+		<p>The Computer Engineering program particularly peaked my interests due to that fact that you get to learn about the hardward and software aspects of computer. Two short years later, after having done my first internship in the fields of web development, I fell in love with web immediately, but it was too late to switch programs. That said, my past time constisted of learning web technologies on the side during my own time as my program didn't have any basic courses for web development.</p>
+		<p>All that said, I should have probably become a Software Engineering, but oh well~.</p>
 	</div>
 </div>
 
-<div class="row center accent-color-2">
+<div class="row">
+	<div class="col-md-12">
+		<h3>My Interests</h3>
+		<div class="col-md-6">
+			<ul>
+				<li><h4>Architect Design</h4></li>
+				<li><h4>Multi-threaded Applications</h4></li>
+				<li><h4>The internet of things</h4></li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<ul>
+				<li><h4>Database Design</h4></li>
+				<li><h4>Responsive UI Design</h4></li>
+				<li><h4>Algorithms</h4></li>
+			</ul>
+		</div>
+		<ul>
+	</div>
+</div>
+
+<div class="row center quote">
 	<h1>"He who knows others is wise; he who knows himself is enlightened."</h1>
 </div>
 
 <div class="row full-width bg-primary">
-	<div class="row">
-		<div class="col-sm-6">
-			
+	<div class="content-2-column row">
+		<div class="image-container">
+			<img src="{% static 'images/about-me/coffee-shop-image.jpg' %}">
 		</div>
-		<div class="col-sm-6">
-			<h2>What is Lorem Ipsum?</h2>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		<div class="content-container">
+			<div>
+				<h2>Why choose freelance?</h2>
+				<p>My ideal path in my career was always to do two things simultaneously: have a solid job in back-end/network development and freelance websites on the side. For me, this seems like the best way to become well-rounded as a full-stack developer.</p>
+			</div>
 		</div>
 	</div>
 </div>
+
+<div class="row center">
+	<div style="height:250px;width:600px; margin: 40px;background-color: black;display:inline-block;">image placeholder</div>
+	<h2>Ok ok. Very professional. What about the real you?</h2>
+	<p> I am a recent graduate with a Bachelor’s in Computer Engineering looking for an opportunity to work in the fields of web development in Montreal. I have great interest in learning new technologies and meeting new people in order to broaden my experience in the industry. </p>
+</div>
+
+<style>
+
+</style>

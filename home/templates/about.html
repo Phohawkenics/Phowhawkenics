@@ -14,6 +14,7 @@
 		<a href="/">Home </a> > About Me
 	</div>
 </div>
+<hr>
 <div class="row">
 	<h1>About me <img class="loading-spinner" style="display: none" src="{% static '/images/loading.gif' %}"></h1>
 	{% include "./component/aboutMe/aboutMeNav.html" with sidebarClasses="sidebar-horizontal primary" only %}
@@ -33,7 +34,8 @@
 
 <script type="text/javascript">
 
-$('.content').on("click", ".sidebar-horizontal > div, .sidebar-vertical > div", function() {
+$('.content').on("click", ".sidebar-horizontal > div, .sidebar-vertical > div", function(e) {
+	e.preventDefault();
     var id = $(this).attr("class");
 
 	$(".loading-spinner").show();

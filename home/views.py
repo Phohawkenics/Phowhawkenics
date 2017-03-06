@@ -13,7 +13,7 @@ def about(request):
 	if contentId == "1":
 		contentName = "whoAmI"
 	elif contentId == "2":
-		contentName = "myEducation"
+		contentName = "experiences"
 	else:
 		contentName = "whoAmI"
 
@@ -25,5 +25,5 @@ def about(request):
 def whoAmI(request):
 	return render(request, 'content/aboutMe/whoAmI.html', {})
 
-def myEducation(request):
-	return render(request, 'content/aboutMe/myEducation.html', {})
+def experiences(request):
+	return render(request, 'content/aboutMe/experiences.html', {})
