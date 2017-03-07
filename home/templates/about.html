@@ -14,6 +14,7 @@
 		<a href="/">Home </a> > About Me
 	</div>
 </div>
+<input id="selectedSidebar" type="hidden" value="{{contentName}}">
 <hr>
 <div class="row">
 	<h1>About me <img class="loading-spinner" style="display: none" src="{% static '/images/loading.gif' %}"></h1>
@@ -21,7 +22,7 @@
 
 </div>
 
-<div id="about-me-content" class="row-wrapper">
+<div id="pageContent" class="row-wrapper">
 
 	{% if contentName != "" %}
 		{% include "./content/aboutMe/"|add:contentName|add:".html" %}
@@ -29,51 +30,6 @@
 
 </div>
 
-
-
-
-<script type="text/javascript">
-
-$('.content').on("click", ".sidebar-horizontal > div, .sidebar-vertical > div", function(e) {
-	e.preventDefault();
-    var id = $(this).attr("class");
-
-	$(".loading-spinner").show();
-	$( "#about-me-content" ).css("opacity", 0);
-
-	var t0 = performance.now();
-
-	$( "#about-me-content" ).load( "/about/" + id, function() {
-		
-		selectSidebar(id);
-
-		var t1 = performance.now();
-
-		if (t1 - t0 < 400) {
-			setTimeout(function() {
-				$(".loading-spinner").hide();
-				$( "#about-me-content" ).animate({
-					    opacity: 1
-					}, 'normal');
-			}, 500);
-		} else {
-			$(".loading-spinner").hide();
-			$( "#about-me-content" ).animate({
-				    opacity: 1
-				}, 'normal');
-		}
-
-	});
-});
-
-selectSidebar("{{contentName}}");
-
-function selectSidebar (className) {
-	$(".sidebar-horizontal > div, sidebar-vertical > div").removeClass("selected");
-	$("." + className).addClass("selected");
-}
-
-</script>
 {% endblock %}
 
 {% block footer %}

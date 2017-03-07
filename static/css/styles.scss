@@ -173,18 +173,21 @@ header {
 		max-width: 9999px;
 	}
 
-	ul {
+ 	ul {
 		padding-left: 10px;
 	}
 
 	ul li {
 		list-style-type: none;
+		position: relative;
+    	margin-left: 15px;
 	}
 
 	ul li:before {
    		content: '>'; 
    		float: left;
-   		margin-right: 10px;
+   		position: absolute;
+    	left: -15px;
 	}
 }
 
