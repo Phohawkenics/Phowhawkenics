@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^services/$', views.services, name='services'),
     url(r'^portfolio/$', views.portfolio, name='portfolio'),
-    url(r'^articles/$', views.index, name='index'),
+    url(r'^articles/$', views.articles, name='articles'),
 ]

@@ -50,3 +50,17 @@ def portfolio(request):
 	}
 	
 	return render(request, 'portfolio.html', context)
+
+def articles(request):
+	contentId = request.GET.get('contentId', '')
+
+	if contentId == "1":
+		contentName = "phohawkenics"
+	else:
+		contentName = "under-construction"
+
+	context = {
+		"contentName": contentName
+	}
+
+	return render(request, 'articles.html', context)

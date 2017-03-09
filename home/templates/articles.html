@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+	<div class="breadcrumbs">
+		<a href="/">Home </a> > Articles
+	</div>
+</div>
+<input id="selectedSidebar" type="hidden" value="{{contentName}}">
+<hr>
+<div class="row">
+	<h1>Articles <img class="loading-spinner" style="display: none" src="{% static '/images/loading.gif' %}"></h1>
+	{% include "./common/under-construction-sidebar.html" with sidebarClasses="sidebar-horizontal primary" only %}
+</div>
+
+<div id="pageContent" class="row-wrapper">
+	<div class="row-wrapper under-construction">
+		{% include "./common/under-construction-content.html" %}
+	</div>
+</div>
+
+{% endblock %}
