@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <div class="row">
-	{% include "../../component/aboutMe/aboutMeNav.html" with sidebarClasses="col-md-3 sidebar-vertical primary" only%}
+	{% include "../../component/about/sidebar.html" with sidebarClasses="col-md-3 sidebar-vertical primary" only%}
 	<div class="col-md-9">
 		<h2>You can call me Leo, easy right?</h2>
 		<img class="leo-thumbnail" src="{% static 'images/about-me/leo-thumbnail.png' %}">
@@ -16,22 +16,15 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3>My Interests</h3>
-		<div class="col-md-6">
-			<ul>
-				<li><h4>Freelancing</h4></li>
-				<li><h4>Software Architecture Design</h4></li>
-				<li><h4>Multi-threaded Applications</h4></li>
-				<li><h4>The Internet of Things</h4></li>
-			</ul>
-		</div>
-		<div class="col-md-6">
-			<ul>
-				<li><h4>Database Design</h4></li>
-				<li><h4>Responsive UI Design</h4></li>
-				<li><h4>Algorithms</h4></li>
-			</ul>
-		</div>
-		<ul>
+		<ul class="horizontal-2-column">
+			<li><h4>> Freelancing</h4></li>
+			<li><h4>> Software Architecture Design</h4></li>
+			<li><h4>> Multi-threaded Applications</h4></li>
+			<li><h4>> The Internet of Things</h4></li>
+			<li><h4>> Database Design</h4></li>
+			<li><h4>> Responsive UI Design</h4></li>
+			<li><h4>> Algorithms</h4></li>
+		</ul>
 	</div>
 </div>
 

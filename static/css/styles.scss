@@ -130,7 +130,6 @@ header {
 /************************************
 **       Content
 *************************************/
-
 @media screen and (max-width: $sm-max-width) {
 	.sidebar-vertical {
 		display: none;
@@ -141,6 +140,10 @@ header {
 	.sidebar-horizontal {
 		display: none;
 	}
+}
+
+#pageContent > div.row-wrapper{
+	display: none;
 }
 
 .content-row-style {
@@ -175,19 +178,7 @@ header {
 
  	ul {
 		padding-left: 10px;
-	}
-
-	ul li {
 		list-style-type: none;
-		position: relative;
-    	margin-left: 15px;
-	}
-
-	ul li:before {
-   		content: '>'; 
-   		float: left;
-   		position: absolute;
-    	left: -15px;
 	}
 }
 
@@ -319,6 +310,22 @@ footer {
 
 .no-float {
 	float: none;
+}
+
+ul.horizontal-2-column {
+	list-style-type: none;
+	
+	li {
+		width: 100%;
+		display:inline-block;
+	}
+
+	@media screen and (min-width: $md-min-width) {
+		li {
+			width: 49%;
+			vertical-align: top;
+		}
+	}
 }
 
 .table-cell {

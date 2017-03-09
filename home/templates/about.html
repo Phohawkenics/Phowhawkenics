@@ -2,12 +2,6 @@
 
 {% load staticfiles %}
 
-{% block header %}
-<div id="header-container" class="bg-primary white">
-	{% include "common/header.html" %}
-</div>
-{% endblock %}
-
 {% block content %}
 <div class="row">
 	<div class="breadcrumbs">
@@ -18,22 +12,20 @@
 <hr>
 <div class="row">
 	<h1>About me <img class="loading-spinner" style="display: none" src="{% static '/images/loading.gif' %}"></h1>
-	{% include "./component/aboutMe/aboutMeNav.html" with sidebarClasses="sidebar-horizontal primary" only %}
+	{% include "./component/about/sidebar.html" with sidebarClasses="sidebar-horizontal primary" only %}
 
 </div>
 
 <div id="pageContent" class="row-wrapper">
-
-	{% if contentName != "" %}
-		{% include "./content/aboutMe/"|add:contentName|add:".html" %}
-	{% endif%}
-
+	<div class="row-wrapper whoAmI">
+		{% include "./content/aboutMe/whoAmI.html" %}
+	</div>
+	<div class="row-wrapper experiences">
+		{% include "./content/aboutMe/experiences.html" %}
+	</div>
+	<div class="row-wrapper partners">
+	</div>
 </div>
 
 {% endblock %}
 
-{% block footer %}
-<div id="footer-container" class="bg-primary white">
-{% include "common/footer.html" %}
-</div>
-{% endblock %}

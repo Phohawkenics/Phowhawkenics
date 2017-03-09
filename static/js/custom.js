@@ -4,41 +4,35 @@ $("#back-to-top").on("click", function() {
 	}, 'fast');
 });
 
-$('.content').on("click", ".sidebar-horizontal > div, .sidebar-vertical > div", function(e) {
+$('.content').on("click", ".sidebar > div", function(e) {
 	e.preventDefault();
+
     var id = $(this).attr("class");
+	var $selectedContent = $( "#pageContent .row-wrapper." + id);
 
-	$(".loading-spinner").show();
-	$( "#pageContent" ).css("opacity", 0);
-
-	var t0 = performance.now();
-
-	$( "#pageContent" ).load( "/about/" + id, function() {
-		
+	if ($selectedContent != null && $selectedContent.length > 0) {
 		selectSidebar(id);
 
-		var t1 = performance.now();
+		$(".loading-spinner").show();
+		$( "#pageContent .row-wrapper").attr("style", "");
 
-		if (t1 - t0 < 400) {
-			setTimeout(function() {
+		$selectedContent.css("opacity", 0);
+		$selectedContent.css("display", "block");
+	
+		$selectedContent.animate({
+			    opacity: 1
+			}
+			, 'normal'
+			, function() {
 				$(".loading-spinner").hide();
-				$( "#pageContent" ).animate({
-					    opacity: 1
-					}, 'normal');
-			}, 500);
-		} else {
-			$(".loading-spinner").hide();
-			$( "#pageContent" ).animate({
-				    opacity: 1
-				}, 'normal');
-		}
-
-	});
+			});
+	} 
 });
 
 function selectSidebar (className) {
-	$(".sidebar-horizontal > div, sidebar-vertical > div").removeClass("selected");
-	$("." + className).addClass("selected");
+	$(".sidebar > div").removeClass("selected");
+	$(".sidebar ." + className).addClass("selected");
+	$("#pageContent .row-wrapper." + className).css("display", "block")
 }
 
 $(document).ready(function() {

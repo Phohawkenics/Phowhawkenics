@@ -25,9 +25,9 @@
 	<div class="row">
 		<ul class="nav-menu-header">
 			<li><div><a href="/about">About Me</a></div></li>
-			<li><div><a href="#">My Services</div></a></li>
-			<li><div><a href="#">Portfolio</div></a></li>
-			<li><div><a href="#">Future Plans</div></a></li>
+			<li><div><a href="/services">My Services</div></a></li>
+			<li><div><a href="/portfolio">Portfolio</div></a></li>
+			<li><div><a href="/articles">Articles</div></a></li>
 		</ul>
 	</div>
 </header>
@@ -64,12 +64,12 @@ $(document).on("click", function (e) {
 function toggleGlyphiconMiscMenu(self) {
 	var $glyphicon = $(self).find(".misc-menu-btn span");
 
-	if ($glyphicon.hasClass("glyphicon-menu-left")) {
-		$glyphicon.removeClass("glyphicon-menu-left");
-		$glyphicon.addClass("glyphicon-remove");
+	if ($("header .misc").hasClass("open")) {
+		$glyphicon.attr("class", "");
+		$glyphicon.addClass("glyphicon glyphicon-remove");
 	} else {
-		$glyphicon.removeClass("glyphicon-minus");
-		$glyphicon.addClass("glyphicon-menu-left");
+		$glyphicon.attr("class", "");
+		$glyphicon.addClass("glyphicon glyphicon-menu-left");
 	}
 }
 </script>

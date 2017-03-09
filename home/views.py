@@ -22,8 +22,31 @@ def about(request):
 	}
 	return render(request, 'about.html', context)
 
-def whoAmI(request):
-	return render(request, 'content/aboutMe/whoAmI.html', {})
+def services(request):
+	contentId = request.GET.get('contentId', '')
 
-def experiences(request):
-	return render(request, 'content/aboutMe/experiences.html', {})
+	if contentId == "1":
+		contentName = "websites"
+	elif contentId == "2":
+		contentName = "web-applications"
+	else:
+		contentName = "websites"
+
+	context = {
+		"contentName": contentName
+	}
+	return render(request, 'services.html', context)
+
+def portfolio(request):
+	contentId = request.GET.get('contentId', '')
+
+	if contentId == "1":
+		contentName = "phohawkenics"
+	else:
+		contentName = "phohawkenics"
+
+	context = {
+		"contentName": contentName
+	}
+	
+	return render(request, 'portfolio.html', context)

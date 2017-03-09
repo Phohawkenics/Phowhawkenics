@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+	<div class="breadcrumbs">
+		<a href="/">Home </a> > Services
+	</div>
+</div>
+<input id="selectedSidebar" type="hidden" value="{{contentName}}">
+<hr>
+<div class="row">
+	<h1>Services <img class="loading-spinner" style="display: none" src="{% static '/images/loading.gif' %}"></h1>
+	{% include "./component/services/sidebar.html" with sidebarClasses="sidebar-horizontal primary" only %}
+
+</div>
+
+<div id="pageContent" class="row-wrapper">
+	<div class="row-wrapper websites">
+		{% include "./content/services/websites.html" %}
+	</div>
+	<div class="row-wrapper web-applications">
+		{% include "./content/services/web-applications.html" %}
+	</div>
+	<div class="row-wrapper web-design">
+		{% include "./content/services/web-design.html" %}
+	</div>
+</div>
+
+{% endblock %}
+

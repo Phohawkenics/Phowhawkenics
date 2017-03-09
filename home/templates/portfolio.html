@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+	<div class="breadcrumbs">
+		<a href="/">Home </a> > Portfolio
+	</div>
+</div>
+<input id="selectedSidebar" type="hidden" value="{{contentName}}">
+<hr>
+<div class="row">
+	<h1>Portfolio <img class="loading-spinner" style="display: none" src="{% static '/images/loading.gif' %}"></h1>
+	{% include "./component/portfolio/sidebar.html" with sidebarClasses="sidebar-horizontal primary" only %}
+</div>
+
+<div id="pageContent" class="row-wrapper">
+	<div class="row-wrapper phohawkenics">
+		{% include "./content/portfolio/phohawkenics.html" %}
+	</div>
+	<div class="row-wrapper vcha">
+	</div>
+	<div class="row-wrapper rbms">
+	</div>
+</div>
+
+{% endblock %}
