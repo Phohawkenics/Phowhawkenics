@@ -8,7 +8,11 @@
 <div class="white">
 	<div class="menu-panel bg-accent-2 col-md-3">
 		<div>
-			<h6>About Me <span class="glyphicon glyphicon-plus"></span></h6>
+			<h6>
+				About Me
+				<span class="glyphicon glyphicon-plus"></span>
+				<span class="glyphicon glyphicon-minus"></span>
+			</h4>
 			<div>
 				<p>
 					Get to know me as I present myself as well as my credentials.
@@ -20,7 +24,11 @@
 	<div class="menu-panel bg-accent-3 col-md-3">
 		
 		<div>
-			<h6>My Services <span class="glyphicon glyphicon-plus"></span></h6>
+			<h6>
+				My Services
+				<span class="glyphicon glyphicon-plus"></span>
+				<span class="glyphicon glyphicon-minus"></span>
+			</h4>
 			<div>
 				<p>
 					Get informed on the benefits of Websites and WebApps and learn about what I can do for you.
@@ -34,7 +42,11 @@
 	<div class="menu-panel bg-accent-4 col-md-3">
 		
 		<div>
-			<h6>Portfolio <span class="glyphicon glyphicon-plus"></span></h6>
+			<h6>
+				Portfolio
+				<span class="glyphicon glyphicon-plus"></span>
+				<span class="glyphicon glyphicon-minus"></span>
+			</h4>
 			<div>
 				<p>
 					Learn more about the project I've completed.
@@ -45,7 +57,11 @@
 	</div>
 	<div class="menu-panel bg-accent-5 col-md-3">
 		<div>
-			<h6>Articles<span class="glyphicon glyphicon-plus"></span></h6>
+			<h6>
+				Articles
+				<span class="glyphicon glyphicon-plus"></span>
+				<span class="glyphicon glyphicon-minus"></span>
+			</h4>
 			<div>
 				<p>
 					Read about random stuff that interests me.
@@ -59,62 +75,22 @@
 <script type="text/javascript">
 
 $(".menu-panel h6").click(function() {
-	var $menuPanel = $(this).parent().parent();
-	var $contentDiv = $menuPanel.find("> div > div:visible");
+	var $listItem = $(this).parent();
+	var $menuPanel = $listItem.parent();
+	var $menuContainer = $menuPanel.parent();
 
-	var showContentFlag = $contentDiv.length == 0;
+	var showContentFlag = $listItem.hasClass("open");
 
 	if (showContentFlag) {
-		closeAllMenus ();
-
-		$contentDiv = $menuPanel.find("div > div");
-		$contentDiv.show();
+		$listItem.removeClass("open");
+	} else {
+		$menuContainer.find("div").removeClass("open");
+		$listItem.addClass("open");
 
 		$('html, body').animate({
-		    scrollTop: $contentDiv.parent().offset().top - 20
+		    scrollTop: $listItem.offset().top - 20
 		}, 'slow');
-
-	} else {
-		$contentDiv.css("display", "");
 	}
-
-	toggleGlyphicon($menuPanel, showContentFlag);
-});
-
-function toggleGlyphicon(self, showContentFlag) {
-	var $glyphicon = $(self).find("h6 > span");
-
-	if (showContentFlag) {
-		$glyphicon.removeClass("glyphicon-plus");
-		$glyphicon.addClass("glyphicon-minus");
-	} else {
-		$glyphicon.removeClass("glyphicon-minus");
-		$glyphicon.addClass("glyphicon-plus");
-	}
-}
-
-function closeAllMenus () {
-	$(".menu-panel > div > div").css("display", "");
-	$(".menu-panel h6 > span").removeClass("glyphicon-minus");
-	$(".menu-panel h6 > span").addClass("glyphicon-plus");
-}
-
-$(document).on("click", function (e) {
-	if (!$(e.target).hasClass('misc-menu-btn')) {
-		var inHomeMenu = $(".home-menu").find(e.target).length > 0;
-		var menuIsOpen = $(".menu-panel > div > div:visible").length > 0;
-
-	    if (!inHomeMenu && menuIsOpen) {
-
-	    	closeAllMenus();
-	    }
-	}
-});
-
-// A $( document ).ready() block.
-$( document ).ready(function() {
-    
-
 });
 
 </script>

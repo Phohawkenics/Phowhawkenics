@@ -2,6 +2,86 @@
 <div class="row">
 	{% include "../../component/portfolio/sidebar.html" with sidebarClasses="col-md-3 sidebar-vertical primary" only %}
 	<div class="col-md-9">
-		<h2>Phohawkenics</h2>
+		<h2>Phohawkenics (Current)</h2>
+		<h3>Step 1 - Initial Site Content</h3>
+		<p>One of the longest and most tedious parts of this project in my opinion. This part includes the selection of the technology, the design of the website as well as the website content.</p>
+		<h4>Overall Technology:</h4>
+		<p>Python – Django – HTML – Javascript/JQuery – SCSS/CSS – Bootstrap 3 – GitHub</p>
+
+		<h3>Step 2 - Design & Implementation of Content Database</h3>
+		<p>Having my own website is nice an all, but, in the end, it's really just static content created by front-end technology. I'll be transfering all the content to a database to make it more manageable and organised. </p>
+		<p>This step is really just a preparation for the next step (creating the CMS) due to the various kinds of web content. </p>
+
+		<h3>Step 3 - Implement CMS for the Content</h3>
+		<p>This is where the complexity gets real. An interface will be created in order to be able to manage all the content of this website. The features I currently have in mind include the following:</p>
+		<ul>
+			<li>> Adding permissions</li>
+			<li>> Customizing attributes of a page</li>
+			<li>> Creating and deleting content and pages</li>
+		</ul>
 	</div>
 </div>
+
+<div class="row center">
+--------------------------------------------Step 1----------------------------------------------Step 2---------------------------------------------Step 3----------------------------------------
+<br/>
+----------------------------------------------^---------------------------------------------------^-------------------------------------------------^------------------------------------------
+<br/>
+------------------------------------March 20th, 2017----------------------------April 20th, 2017------------------------------May 20th, 2017 -----------------------------------
+</div>
+
+
+<div class="row full-width">
+	<div class="row">
+		<h2>Photos</h2>
+	</div>
+	<div class="image-gallery-1">
+		<div class="row">
+			<div class="left-nav">
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</div>
+			<div class="right-nav">
+				<span class="glyphicon glyphicon-menu-right"></span>
+			</div>
+			<div class="items-container">
+				<div class="items">
+					<div class="item">
+						<div>
+							<img src="{% static '/images/portfolio/phohawkenics/home_page.png' %}">
+						</div>
+					</div>
+					<div class="item">
+						<div>
+							<img src="{% static '/images/portfolio/phohawkenics/home_page_mobile.png' %}">
+						</div>
+					</div>
+					<div class="item">
+						<div>
+							<img src="{% static '/images/portfolio/phohawkenics/career_timeline.png' %}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready( function() {
+		var imageGallerySection = "phohawkenics";
+		var n = new ImageGallery1(
+				$("." + imageGallerySection + " .image-gallery-1 .item").length,
+				$("." +imageGallerySection + " .image-gallery-1 .item:first").width(),
+				imageGallerySection
+			);
+		$("." + imageGallerySection + " .image-gallery-1 .left-nav > span").on("click", function () {
+			n.navigateLeft();
+		});
+		$("." + imageGallerySection + " .image-gallery-1 .right-nav > span").on("click", function () {
+			n.navigateRight();
+		});
+		$("." + imageGallerySection + " .image-gallery-1 .item").on("click", function () {
+			n.openInFullScreen(this);
+		});
+	});
+</script>
