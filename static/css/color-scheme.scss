@@ -1,11 +1,12 @@
 
-$primary-color: #B0D2D3; /*blue*/
-$secondary-color: #62D4D0; /**/
+$primary-color: #B0D2D3; /*teal*/
+$secondary-color: #62D4D0; /* dark teal*/
 
 $accent-color-1: #0A83E0; /*blue*/
 $accent-color-2: #2D4262; /*indigo*/
 $accent-color-3: #363237; /*deep purple*/
 $accent-color-4: #73605B; /*taupe*/
+$accent-color-4-10: rgba(115, 96, 91, 0.1); /*taupe*/
 $accent-color-5: #D09683; /*blush*/
 
 $neutral-grey: #eeeeee; /*grey*/
@@ -20,6 +21,7 @@ $neutral-beige: #FFF3AE; /*beige*/
 .bg-accent-2 { background-color: $accent-color-2;}
 .bg-accent-3 { background-color: $accent-color-3;}
 .bg-accent-4 { background-color: $accent-color-4;}
+.bg-accent-4-70 { background-color: $accent-color-4-10;}
 .bg-accent-5 { background-color: $accent-color-5;}
 
 .bg-grey { background-color: $neutral-grey;}
@@ -71,3 +73,34 @@ $neutral-beige: #FFF3AE; /*beige*/
 	}
 }
 
+.color-palette {
+	display: inline-block;
+
+	ul {
+		display: block;
+	}
+
+	li:first-child {
+		display: block;
+	}
+
+	li {
+		display: inline-block;
+	}
+
+	li > div {
+		width: 100px;
+		height: 100px;
+	}
+
+	@media screen and (min-width: $md-min-width) {
+		ul {
+			display: table-cell;
+			padding: 0 80px;
+		}
+
+		li {
+			display: block;
+		}
+	}
+}

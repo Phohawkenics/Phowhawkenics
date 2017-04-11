@@ -4,18 +4,18 @@ $("#back-to-top").on("click", function() {
 	}, 'fast');
 });
 
-$("#screen-overlay-container").on("click", function(e) { 
+$("#screen-overlay-container, #screen-overlay-container .close").on("click", function(e) { 
 	if (e.target !== this)
     	return
-
-    $(this).removeClass("open");
+    $("#screen-overlay-container").removeClass("open");
 });
 
-$("#screen-overlay-container .close").on("click", function(e) { 
-	if (e.target !== this)
-    	return
+$("#screen-overlay-container .left-nav > span").on("click", function(e) { 
+    fullScreenGallery.navigateLeft();
+});
 
-    $("#screen-overlay-container").removeClass("open");
+$("#screen-overlay-container .right-nav > span").on("click", function(e) { 
+    fullScreenGallery.navigateRight();
 });
 
 $('.content').on("click", ".sidebar > div", function(e) {
@@ -48,6 +48,23 @@ function selectSidebar (className) {
 	$(".sidebar ." + className).addClass("selected");
 	$("#pageContent .row-wrapper." + className).css("display", "block")
 }
+
+$(".info-dropdown").on("click", "h2, h3, h4, h5, h6" , function() {
+	var $listItem = $(this).parent();
+
+	var showContentFlag = $listItem.hasClass("open");
+
+	if (showContentFlag) {
+		$listItem.removeClass("open");
+	} else {
+		$listItem.parent().find("li").removeClass("open");
+		$listItem.addClass("open");
+
+		$('html, body').animate({
+		    scrollTop: $listItem.offset().top - 20
+		}, 'slow');
+	}
+});
 
 
 $(document).ready(function() {

@@ -44,14 +44,20 @@
 		<img src="{% static 'images/back-to-top.png'%}">
 	</div>
 	<div id="screen-overlay-container">
+		<img class="loading-spinner" style="display: none" src="{% static '/images/loading.gif' %}">
 		<div>
 			<span class="glyphicon glyphicon-remove close"></span>
-			<img src="{% static '/images/portfolio/vcha/light-circuit.jpg' %}">
-		</div>
+			<div class="left-nav">
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</div>
+			<div class="right-nav">
+				<span class="glyphicon glyphicon-menu-right"></span>
+			</div>
 	</div>
 </body>
 
-<script src="{% static '/lib/js-inheritance/js-inheritance.js' %}"></script>
+<script src="{% static '/lib/js-inheritance/js-inheritance.js' %}"></script>\
+<script src="{% static '/js/full-screen-gallery.js' %}"></script>
 <script src="{% static '/js/image-gallery-1.js' %}"></script>
 <script src="{% static '/js/custom.js' %}"></script>
 </html>

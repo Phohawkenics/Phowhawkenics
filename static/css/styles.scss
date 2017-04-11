@@ -38,18 +38,110 @@ $max-page-width: 1500px;
     	display: flex;
 		align-items: center;
 		justify-content: center;
+		text-align: center;
 		width: 80%;
 		height: 80%;
-		overflow: hidden;
 		background-color: black;
 	}
 
-	.close {
-		color: white;
+	h2 {
 		position: absolute;
-    	right: 0;
-    	top: 0;
-    	padding: 5px;
+		font-size: 30px;
+		top: -60px;
+		left: 0;
+		right: 0;
+		color: white;
+		white-space: nowrap;
+	    max-width: 100%;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	}
+
+	.close {
+		color: white!important;
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-size: 30px;
+	    opacity: 1;
+	    top: -32px;
+	    right: -32px;
+
+	    &:hover {
+	    	opacity: 0.8;
+	    }
+	}
+	.left-nav,
+	.right-nav {
+		position: absolute;
+	    display: flex;
+	    align-items: center;
+	    color: white;
+	    font-size: 40px;
+	    z-index: -1;
+
+	    span:hover {
+	    	cursor: pointer;
+	    	opacity: 0.7;
+	    }
+	}
+
+	.left-nav {
+		left: 0;
+	    top: 0;
+	    bottom: 0;
+
+	    span {
+	    	left: -40px;
+	    	background-color: black;
+    		padding: 50px 5px;
+	    }
+	}
+
+	.right-nav {
+		right: 0;
+	    top: 0;
+	    bottom: 0;
+
+	    span {
+	    	right: -40px;
+	    	background-color: black;
+    		padding: 50px 5px;
+	    }
+	}
+	.loading-spinner{
+		z-index: 100;
+	    position: absolute;
+	    height: 60px;
+	    width: 60px;
+    }
+
+	@media screen and (max-width: $xs-max-width) {
+		h2 {
+			font-size: 16px;
+			top: -40px;
+		}
+	}
+
+	@media screen and (min-width: $md-min-width) {
+		.left-nav,
+		.right-nav {
+			font-size: 100px;
+		}
+
+		.left-nav {
+
+			span {
+				left: -95px;
+			}
+		}
+
+		.right-nav {
+
+			span {
+				right: -95px;
+			}
+		}
 	}
 }
 
@@ -136,7 +228,7 @@ header {
 		}
 
 		.misc.open {
-			background-color: $accent-color-3;
+			background-color: $accent-color-4;
 			border: 3px solid $neutral-black;
 		}
 
@@ -219,7 +311,45 @@ header {
 	img {
 		max-width: 100%;
 	}
+
+	table {
+		width: 100%;
+
+		tr {
+
+		}
+
+
+		th {
+			background: $accent-color-2;
+			padding: 10px 10px;
+			color: white;
+
+			h3, h4, h5, h6 {
+				padding: 0;
+				margin: 0;
+				color: white;
+			}
+		}
+
+		td {
+			border: 1px solid $secondary-color;
+			color: $neutral-black;
+			padding: 10px 10px;
+		}
+
+		tr:nth-child(odd) {
+		    background-color: $accent-color-4-10;
+		}
+
+		td, th {
+			> div {
+				min-height: 10px;
+			}
+		}
+	}
 }
+
 
 @media screen and (max-width:$xs-max-width) {
 	.content,

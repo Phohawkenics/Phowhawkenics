@@ -1,4 +1,4 @@
-$primary-headline-font: Impact;
+$primary-headline-font: "Trebuchet MS", Helvetica, sans-serif;
 $secondary-headline-font: Century Gothic, sans-serif;
 
 $primary-text-font: Helvetica, sans-serif;
@@ -27,20 +27,25 @@ header, footer {
 	}
 }
 
-.content {
-	
-}
-
 body, p, li, table, div {
 	font-family: $primary-text-font;
 	font-size: 16px;
 	letter-spacing: 1px;
+
+	@media screen and (max-width: $xs-max-width) {
+		font-size: 14px;
+	}
 }
 
 h1 {
 	font-family: $primary-headline-font;
     letter-spacing: 10px;
     font-size: 50px;
+    font-weight: bold;
+
+    @media screen and (max-width: $xs-max-width) {
+		font-size: 40px;
+	}
 }
 
 h2 {
@@ -48,27 +53,49 @@ h2 {
 	letter-spacing: 5px;
     font-size: 40px;
 	font-style: italic;
+
+	@media screen and (max-width: $xs-max-width) {
+		font-size: 32px;
+	}
 }
 
 h3 {
 	font-family: $primary-headline-font;
 	letter-spacing: 3px;
     font-size: 28px;
+    font-weight: bold;
+
+    @media screen and (max-width: $xs-max-width) {
+		font-size: 24px;
+	}
 }
 
 h4 {
 	font-family: $secondary-headline-font;
     font-size: 24px;
+
+    @media screen and (max-width: $xs-max-width) {
+		font-size: 20px;
+	}
 }
 
 h5 {
 	font-family: $primary-headline-font;
     font-size: 20px;
     letter-spacing: 2px;
+    font-weight: bold;
+    
+    @media screen and (max-width: $xs-max-width) {
+		font-size: 17px;
+	}
 }
 
 h6 {
 	font-family: $secondary-headline-font;
 	font-weight:bold;
     font-size: 20px;
+    
+    @media screen and (max-width: $xs-max-width) {
+		font-size: 17px;
+	}
 }

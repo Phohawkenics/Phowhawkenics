@@ -2,34 +2,68 @@
 <div class="row">
 	{% include "../../component/portfolio/sidebar.html" with sidebarClasses="col-md-3 sidebar-vertical primary" only %}
 	<div class="col-md-9">
-		<h2>Phohawkenics (Current)</h2>
-		<h3>Step 1 - Initial Site Content</h3>
-		<p>One of the longest and most tedious parts of this project in my opinion. This part includes the selection of the technology, the design of the website as well as the website content.</p>
-		<h4>Overall Technology:</h4>
-		<p>Python – Django – HTML – Javascript/JQuery – SCSS/CSS – Bootstrap 3 – GitHub</p>
-
-		<h3>Step 2 - Design & Implementation of Content Database</h3>
-		<p>Having my own website is nice an all, but, in the end, it's really just static content created by front-end technology. I'll be transfering all the content to a database to make it more manageable and organised. </p>
-		<p>This step is really just a preparation for the next step (creating the CMS) due to the various kinds of web content. </p>
-
-		<h3>Step 3 - Implement CMS for the Content</h3>
-		<p>This is where the complexity gets real. An interface will be created in order to be able to manage all the content of this website. The features I currently have in mind include the following:</p>
-		<ul>
-			<li>> Adding permissions</li>
-			<li>> Customizing attributes of a page</li>
-			<li>> Creating and deleting content and pages</li>
+		<h2>Phohawkenics - Current</h2>
+		<p>This site is really just to get a site on a hosting server because I've never done it before. As my end vision for this project is pretty complexe, I've decided to split this project into 3 steps below:</p>
+		<ul class="info-dropdown">
+			<li>
+				<h3>
+					Step 1 - Initial Site Content
+					<span class="glyphicon glyphicon-plus"></span>
+					<span class="glyphicon glyphicon-minus"></span>
+				</h3>
+				<div class="info-content">
+					<p>One of the longest and most tedious parts of this project in my opinion. This part includes the selection of the technology, the design of the website as well as the website content.</p>
+					<ul>
+						<li>
+							<h4>Overall Technology:</h4>
+							<p>Python – Django – HTML – Javascript/JQuery – SCSS/CSS – Bootstrap 3 – GitHub</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>
+					Step 2 - Design & Implementation of Content Database
+					<span class="glyphicon glyphicon-plus"></span>
+					<span class="glyphicon glyphicon-minus"></span>
+				</h3>
+				<div class="info-content">
+					<p>Having my own website is nice an all, but, in the end, it's really just static content created by front-end technology. I'll be transfering all the content to a database to make it more manageable and organised. </p>
+					<p>This step is really just a preparation for the next step (creating the CMS) due to the various kinds of web content. </p>
+					<ul>
+						<li>
+							<h4>Overall Technology:</h4>
+							<p>To be determined...</p>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<h3>
+					Step 3 - Implement CMS for the Content
+					<span class="glyphicon glyphicon-plus"></span>
+					<span class="glyphicon glyphicon-minus"></span>
+				</h3>
+				<div class="info-content">
+					<p>This is where the complexity gets real. An interface will be created in order to be able to manage all the content of this website. The features I currently have in mind include the following:</p>
+					<ul>
+						<li>> Adding permissions</li>
+						<li>> Customizing attributes of a page</li>
+						<li>> Creating and deleting content and pages</li>
+					</ul>
+					<ul>
+						<li>
+							<h4>Overall Technology:</h4>
+							<p>To be determined...</p>
+						</li>
+					</ul>
+				</div>
+			</li>
 		</ul>
+		<hr/>
+		<a href="https://github.com/Phohawkenics/Phowhawkenics">> Click here to see the code</a>
 	</div>
 </div>
-
-<div class="row center">
---------------------------------------------Step 1----------------------------------------------Step 2---------------------------------------------Step 3----------------------------------------
-<br/>
-----------------------------------------------^---------------------------------------------------^-------------------------------------------------^------------------------------------------
-<br/>
-------------------------------------March 20th, 2017----------------------------April 20th, 2017------------------------------May 20th, 2017 -----------------------------------
-</div>
-
 
 <div class="row full-width">
 	<div class="row">
@@ -46,16 +80,19 @@
 			<div class="items-container">
 				<div class="items">
 					<div class="item">
+						<h2>Full-width Home Page</h2>
 						<div>
 							<img src="{% static '/images/portfolio/phohawkenics/home_page.png' %}">
 						</div>
 					</div>
 					<div class="item">
+						<h2>Mobile Home Page</h2>
 						<div>
 							<img src="{% static '/images/portfolio/phohawkenics/home_page_mobile.png' %}">
 						</div>
 					</div>
 					<div class="item">
+						<h2>Career Timeline</h2>
 						<div>
 							<img src="{% static '/images/portfolio/phohawkenics/career_timeline.png' %}">
 						</div>
@@ -81,7 +118,8 @@
 			n.navigateRight();
 		});
 		$("." + imageGallerySection + " .image-gallery-1 .item").on("click", function () {
-			n.openInFullScreen(this);
+			fullScreenGallery.setCurrentClass(n.getSectionClass());
+			fullScreenGallery.openInFullScreen(this);
 		});
 	});
 </script>

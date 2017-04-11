@@ -2,11 +2,11 @@
 <div class="row">
 	{% include "../../component/portfolio/sidebar.html" with sidebarClasses="col-md-3 sidebar-vertical primary" only %}
 	<div class="col-md-9">
-		<h2>Voice Controlled Home Automation</h2>
+		<h2>Voice Controlled Home Automation - 2016</h2>
 		<ul>
 			<li>
 				<h4>Overall Technology:</h4>
- 				<p>Arduino – Java – SQLite – C# – SQLite – Git – Electronic</p>
+ 				<p>Arduino – Java – SQLite – C# – SQLite – Git – Electronics</p>
  			</li>
 			<li>
 				<h3>> What?</h3> 
@@ -41,11 +41,13 @@
 			<div class="items-container">
 				<div class="items">
 					<div class="item">
+						<h2>Inside the light component box</h2>
 						<div>
 							<img src="{% static '/images/portfolio/vcha/light-circuit.jpg' %}">
 						</div>
 					</div>
 					<div class="item">
+						<h2>Work station and open heater</h2>
 						<div>
 							<img src="{% static '/images/portfolio/vcha/heater-light-box.jpg' %}">
 						</div>
@@ -79,7 +81,8 @@
 			n.navigateRight();
 		});
 		$("." + imageGallerySection + " .image-gallery-1 .item").on("click", function () {
-			n.openInFullScreen(this);
+			fullScreenGallery.setCurrentClass(n.getSectionClass());
+			fullScreenGallery.openInFullScreen(this);
 		});
 	});
 </script>

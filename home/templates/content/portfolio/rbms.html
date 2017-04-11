@@ -2,6 +2,90 @@
 <div class="row">
 	{% include "../../component/portfolio/sidebar.html" with sidebarClasses="col-md-3 sidebar-vertical primary" only %}
 	<div class="col-md-9">
-		<h2>Room Booking Meeting Scheduler</h2>
+		<h2>Room Booking Meeting Scheduler - 2015</h2>
+		<p>This project was really an introduction to network based applications and multi-threading. I had lots of fun making and designing it. Although, everytime I look back at this project, it reminds me of how little I knew about programming and its technologies back then.</p>
+		<h4>Overall Technology:</h4>
+ 		<p>Java – Swing (Java) – Notepad Database (I still find this hilarious)</p>
+
+		<h3>> What?</h3> 
+		<p>Remotely connect to a central server and book meeting with other users. To implement this, two programs had to be created: the server and the client GUI.</p>
+
+		<h4>RBMS Server</h4>
+		<p>The server was definately the hardest part of this project. It was the first "big" program I created from scracth.</p>
+		<p>It's responsibility included managing all the connections with the client applications, storing all the data in a central location and managing all the business rules.
+
+		<h4>Client GUI</h4>
+		<p>The client GUI was programmed in Java using Swing. The GUIs primary use was to make it easier to use as well as to be able to add validation rules on the user inputs.</p>
 	</div>
 </div>
+<hr/>
+<div class="row full-width">
+	<div class="row">
+		<h2>Photos</h2>
+	</div>
+	<div class="image-gallery-1">
+		<div class="row">
+			<div class="left-nav">
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</div>
+			<div class="right-nav">
+				<span class="glyphicon glyphicon-menu-right"></span>
+			</div>
+			<div class="items-container">
+				<div class="items">
+					<div class="item">
+						<h2>Connecting to the Server</h2>
+						<div>
+							<img src="{% static '/images/portfolio/rbms/connection.png' %}">
+						</div>
+					</div>
+					<div class="item">
+						<h2>Logging in/Registration</h2>
+						<div>
+							<img src="{% static '/images/portfolio/rbms/login.png' %}">
+						</div>
+					</div>
+					<div class="item">
+						<h2>Booking a meeting</h2>
+						<div>
+							<img src="{% static '/images/portfolio/rbms/booking-a-meeting.png' %}">
+						</div>
+					</div>
+					<div class="item">
+						<h2>Agenda</h2>
+						<div>
+							<img src="{% static '/images/portfolio/rbms/agenda.png' %}">
+						</div>
+					</div>
+					<div class="item">
+						<h2>Server</h2>
+						<div>
+							<img src="{% static '/images/portfolio/rbms/server.png' %}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready( function() {
+		var imageGallerySection = "rbms";
+		var n = new ImageGallery1(
+				$("." + imageGallerySection + " .image-gallery-1 .item").length,
+				$("." +imageGallerySection + " .image-gallery-1 .item:first").width(),
+				imageGallerySection
+			);
+		$("." + imageGallerySection + " .image-gallery-1 .left-nav > span").on("click", function () {
+			n.navigateLeft();
+		});
+		$("." + imageGallerySection + " .image-gallery-1 .right-nav > span").on("click", function () {
+			n.navigateRight();
+		});
+		$("." + imageGallerySection + " .image-gallery-1 .item").on("click", function () {
+			fullScreenGallery.setCurrentClass(n.getSectionClass());
+			fullScreenGallery.openInFullScreen(this);
+		});
+	});
+</script>
