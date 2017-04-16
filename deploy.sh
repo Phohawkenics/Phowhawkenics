@@ -19,7 +19,7 @@ else
 	exit 0
 fi
 
-pushd /home/phohawkenics/webapps/phohawkenics/phohawkenics
+pushd /home/phohawkenics/webapps/phohawkenics/apache2/bin
 ./stop
 popd
 
@@ -27,23 +27,23 @@ echo 'Removing home and static'
 
 rm -rf /home/phohawkenics/webapps/phohawkenics/phohawkenics/home
 rm -rf /home/phohawkenics/webapps/phohawkenics/phohawkenics/static
-rm -rf /home/phohawkenics/webapps/static/*
+#rm -rf /home/phohawkenics/webapps/static/phohawkenics/*
 
 echo 'Copying home and static'
 
 cp -R ./home /home/phohawkenics/webapps/phohawkenics/phohawkenics
 cp -R ./static /home/phohawkenics/webapps/phohawkenics/phohawkenics
 
-rm -rf ./home
-rm -rf ./static
-
 echo 'Collecting static files'
 
 pushd /home/phohawkenics/webapps/phohawkenics/phohawkenics
-exec python2.7 manage.py collectstatic
+python2.7 manage.py collectstatic
 popd
 
-pushd /home/phohawkenics/webapps/phohawkenics/phohawkenics
+rm -rf ./home
+rm -rf ./static
+
+pushd /home/phohawkenics/webapps/phohawkenics/apache2/bin
 ./start
 popd
 
